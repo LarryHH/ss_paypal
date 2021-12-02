@@ -4,6 +4,7 @@
 // QR CODE
 
 let renderedArray = [false, false, false]
+const BASE_AMOUNT = 0.01
 
 function renderPaypalButton(id) {
 
@@ -42,7 +43,7 @@ function renderPaypalButton(id) {
   else 
     renderedArray[index] = true;
   
-  let total = 0.10 * (purchaseIDs.filter(Boolean).length + 1);
+  let total = BASE_AMOUNT * (purchaseIDs.filter(Boolean).length + 1);
   paypal
   .Buttons({
     createOrder: function (data, actions) {
