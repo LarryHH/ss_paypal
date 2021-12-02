@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Secret Santa Riddler</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script
+    src="https://www.paypal.com/sdk/js?currency=AUD&client-id=AfOour2NwP0YbbmaWGyj2OCgbilnK3wlwjFH5Pol4A8PZtOJiaMhN63-sh1ZLaYnkxhgIpGlj8Aog2TQ"></script>
+  <script src="/script.js" defer></script>
+</head>
+
+<body>
+  <br>
+  <h1 style="display: flex; justify-content: center; align-items: center; text-align: center;">Merry Christmas {recipient.name}
+  </h1>
+  <hr style="width: 85%; text-align: center;">
+  <strong style="display: flex; justify-content: center; align-items: center; text-align: center; line-height: 1.5;">
+    A riddle for the {recipient.name}, 1 2 3, <br>
+    Three gifts before you, so you can see,<br>
+    Only one to pick, A B or C,<br>
+    Perhaps a hint to help you? Go on, they're free!
+  </strong>
+  <hr style="width: 85%; text-align: center;">
+  <div id="buttonA" class='btn-primary--next' onclick="renderPaypalButton(this.id)">Hint A</div>
+  <div id="paypalA" class="center" style='width: 100%; transform: scale(5vmin);'></div>
+  <div id="hintA" class="inactive center"></div>
+
+  <div id="buttonB" class='btn-primary--next' onclick="renderPaypalButton(this.id)">Hint B</div>
+  <div id="paypalB" class="center" style='width: 100%; transform: scale(5vmin);'></div>
+  <div id="hintB" class="inactive center"></div>
+
+  <div id="buttonC" class='btn-primary--next' onclick="renderPaypalButton(this.id)">Hint C</div>
+  <div id="paypalC" class="center" style='width: 100%; transform: scale(5vmin);'></div>
+  <div id="hintC" class="inactive center"></div>
+</body>
+
+</html>
+
+<script>
+  window.onload = function () {
+    let purchaseIDs = [false, false, false];
+    if (localStorage.getItem("purchaseIDs") === null) {
+      console.log('fresh ids')
+      console.log(purchaseIDs)
+      localStorage.setItem('purchaseIDs', JSON.stringify(purchaseIDs))
+    }
+    else
+      console.log(localStorage.getItem("purchaseIDs"))
+    purchaseIDs = JSON.parse(localStorage.getItem("purchaseIDs"))
+    let divIDs = ['hintA', 'hintB', 'hintC']
+    let hintText = [atob("aGVsbG93IHdvcmxkIDE="), atob("aGVsbG93IHdvcmxkIDE="), atob("aGVsbG93IHdvcmxkIDE=")]
+    for (let index = 0; index < purchaseIDs.length; index++) {
+      if (purchaseIDs[index]) {
+        console.log(index)
+        console.log(divIDs[index])
+        console.log(hintText[index])
+        document.getElementById(divIDs[index]).innerHTML = hintText[index];
+        document.getElementById(divIDs[index]).classList.add('active');
+      }
+    }
+  }
+</script>

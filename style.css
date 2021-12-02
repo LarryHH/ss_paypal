@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    background-color: #D8D8F6;
+}
+  
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
+
+div {
+    margin: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    min-height: 50px;
+}
+
+strong {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: black
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: black
+}
+
+.btn-primary--next, .btn-primary--next-alt {
+    background: #2E382E;
+    border-radius: 20px;
+    color: #fff;
+    outline: 0;
+    border: 0;
+    padding: 20px 30px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: background .3s ease;
+    text-decoration: none;
+    min-width: 10px;
+    margin: 15px 0px;
+}
+
+.btn-primary--next:hover {
+    background: #1C221C;
+    transition: background .3s ease;
+}
+
+.paypal-button-container .paypal-button-layout-horizontal .paypal-button-shape-pill .paypal-button-number-single .paypal-button-env-sandbox {
+    max-width: 100% !important;
+}
+
+.inactive {
+    display: none;
+}
+
+.active {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
