@@ -33,7 +33,7 @@ h1 {
     color: black
 }
 
-.btn-primary--next, .btn-primary--next-alt {
+.btn-primary--next {
     background: #2E382E;
     border-radius: 20px;
     color: #fff;
