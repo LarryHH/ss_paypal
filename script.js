@@ -10,7 +10,7 @@ HINTTEXT = [
 ]
 
 let renderedArray = [false, false, false]
-const BASE_AMOUNT = 0.01
+const BASE_AMOUNT = 50.00
 
 function renderPaypalButton(id) {
 
